@@ -7,7 +7,7 @@ console.log(producto.length); // Devuelve la longitud de la cadena
 
 //Localizar una palabra
 console.log(producto.indexOf('Monitor')); // Devuelve 0, que es la posuicion en la que comienza
-variable = producto.lasIndexOf('Monitor');
+variable = producto.lastIndexOf('Monitor');
 
 console.log(producto.indexOf('pulgadas')); // Devuelve 11, que es la posicion en la que comienza la palabra
 

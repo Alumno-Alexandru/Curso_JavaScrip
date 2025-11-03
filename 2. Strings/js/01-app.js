@@ -1,4 +1,4 @@
-const prducto1 = "Monitor 20 Pulgadas";
+const producto1 = "Monitor 20 Pulgadas";
 const producto2 = String('Monitor 24 Pulgadas');
 const producto3 = new String('Teclado');
 
