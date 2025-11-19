@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Propinas y Consumos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">Calculadora de Consumos y Propinas</h1>
+        </div>
+    </header>
+
+    <div class="btn-container">
+        <button class="btn btn-nueva-orden" id="btn-nueva-orden">Nueva Orden</button>
+    </div>
+
+    <main id="platillos" class="seccion oculto">
+        <div class="container">
+            <h2 class="seccion-titulo">Platillos Disponibles</h2>
+            <div class="contenido"></div>
+        </div>
+    </main>
+    
+    <section id="resumen" class="seccion oculto">
+        <div class="container">
+            <h2 class="seccion-titulo">Resumen De Consumo</h2>
+            <div class="contenido">
+                <p class="texto-centro">Añade los elementos del pedido</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="propinas" class="seccion oculto">
+        <div class="container">
+            <h2 class="seccion-titulo">Cálculo de Propinas</h2>
+            <div class="contenido">
+                <div class="propinas-contenedor">
+                    <div class="propinas-opciones">
+                        <button class="btn-propina" data-porcentaje="10">10%</button>
+                        <button class="btn-propina" data-porcentaje="15">15%</button>
+                        <button class="btn-propina" data-porcentaje="20">20%</button>
+                        <button class="btn-propina" data-porcentaje="25">25%</button>
+                    </div>
+                    <div class="propina-personalizada">
+                        <label for="propina-custom">Propina Personalizada (€):</label>
+                        <input type="number" id="propina-custom" min="0" step="0.01" placeholder="Ingresa monto">
+                    </div>
+                    <div class="propinas-resumen">
+                        <div class="propina-item">
+                            <span>Total Consumo:</span>
+                            <span id="total-consumo">€0.00</span>
+                        </div>
+                        <div class="propina-item">
+                            <span>Propina:</span>
+                            <span id="monto-propina">€0.00</span>
+                        </div>
+                        <div class="propina-item total">
+                            <span>Total con Propina:</span>
+                            <span id="total-con-propina">€0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="formulario">
+        <div class="modal-overlay"></div>
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h2 class="modal-titulo">Restaurant App</h2>
+                <button class="btn-cerrar" id="btn-cerrar-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-grupo">
+                        <label class="form-label" for="mesa">Mesa</label>
+                        <input id="mesa" type="number" class="form-input" min="1" max="8" placeholder="Número de mesa (1-8)">
+                    </div>
+                    <div class="form-grupo">
+                        <label class="form-label" for="hora">Hora</label>
+                        <input id="hora" type="time" class="form-input">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secundario" id="btn-cancelar">Cerrar</button>
+                <button id="guardar-cliente" class="btn btn-primario">Crear Orden</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
