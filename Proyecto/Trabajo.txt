@@ -1,3 +1,0 @@
-calculo de propinas y consumos con un boton de nueva orden  dos arrays en el 
-json para los platillos y clientes y que salga el listado y en la parte de abajo 
-que salga todo los datos que eligan
