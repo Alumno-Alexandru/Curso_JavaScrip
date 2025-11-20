@@ -1,6 +1,3 @@
-/* ============================================
-   ESTILOS GENERALES
-   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -28,13 +25,13 @@ body {
     text-align: center;
 }
 
-header, .header {
+header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     padding: 2rem 0;
 }
 
-header h1, .header-title {
+header h1 {
     color: white;
     font-size: 2rem;
     font-weight: 700;
@@ -42,11 +39,7 @@ header h1, .header-title {
     text-align: center;
 }
 
-
-/* ============================================
-   BOTONES
-   ============================================ */
-.btn, .btn-success, .btn-nueva-orden, .btn-primario, .btn-secundario {
+.btn, .btn-nueva-orden {
     padding: 0.8rem 2rem;
     font-size: 1rem;
     font-weight: 600;
@@ -63,7 +56,7 @@ header h1, .header-title {
     margin-top: 2rem;
 }
 
-.btn-nueva-orden, .btn-success {
+.btn-nueva-orden {
     background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
     color: white;
     box-shadow: 0 8px 20px rgba(17, 153, 142, 0.4);
@@ -72,29 +65,9 @@ header h1, .header-title {
     border-radius: 50px;
 }
 
-.btn-nueva-orden:hover, .btn-success:hover {
+.btn-nueva-orden:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(17, 153, 142, 0.6);
-}
-
-.btn-primario {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.btn-primario:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-}
-
-.btn-secundario {
-    background: #6c757d;
-    color: white;
-}
-
-.btn-secundario:hover {
-    background: #5a6268;
-    transform: translateY(-2px);
 }
 
 .btn-eliminar {
@@ -109,10 +82,6 @@ header h1, .header-title {
     background: #ff5252;
     transform: scale(1.05);
 }
-
-/* ============================================
-   SECCIONES
-   ============================================ */
 .seccion {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
@@ -143,22 +112,8 @@ header h1, .header-title {
     border-radius: 2px;
 }
 
-/* ============================================
-   CONTENIDO
-   ============================================ */
 .contenido {
     animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .contenido p {
@@ -167,7 +122,6 @@ header h1, .header-title {
     font-style: italic;
 }
 
-/* Contenedor de platillos - GRID sin scroll */
 .contenedor-platillos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -175,8 +129,7 @@ header h1, .header-title {
     margin-bottom: 2rem;
 }
 
-/* Tarjetas de platillos */
-.platillo-card, .card-platillo {
+.platillo-card {
     background: white;
     border-radius: 15px;
     padding: 1.5rem;
@@ -188,7 +141,7 @@ header h1, .header-title {
     justify-content: space-between;
 }
 
-.platillo-card:hover, .card-platillo:hover {
+.platillo-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
@@ -223,10 +176,6 @@ header h1, .header-title {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
-
-/* ============================================
-   TABLA RESUMEN
-   ============================================ */
 .resumen-encabezado {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
@@ -293,10 +242,6 @@ header h1, .header-title {
     text-align: center;
     box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
-
-/* ============================================
-   MODAL
-   ============================================ */
 .modal {
     display: none;
     position: fixed;
@@ -401,21 +346,6 @@ header h1, .header-title {
     gap: 1rem;
     justify-content: flex-end;
 }
-
-/* ============================================
-   UTILIDADES
-   ============================================ */
-.d-none {
-    display: none;
-}
-
-.fade-in {
-    animation: fadeIn 0.6s ease-in;
-}
-
-/* ============================================
-   PROPINAS
-   ============================================ */
 .propinas-contenedor {
     background: white;
     border-radius: 15px;
@@ -506,15 +436,12 @@ header h1, .header-title {
 }
 
 .propina-item.total {
-    border-bottom: none;
     border-top: 2px solid #667eea;
-    margin-top: 1rem;
-    padding-top: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
     font-size: 1.3rem;
     background: white;
-    padding: 1rem;
     border-radius: 8px;
-    margin-top: 1.5rem;
 }
 
 .propina-item.total span:last-child {

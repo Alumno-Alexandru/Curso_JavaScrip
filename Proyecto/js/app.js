@@ -1,75 +1,38 @@
 // Selectores
 const btnNuevaOrden = document.querySelector('#btn-nueva-orden');
 const modal = document.querySelector('#formulario');
-const btnCerrarModal = document.querySelector('#btn-cerrar-modal');
-const btnCancelar = document.querySelector('#btn-cancelar');
-const btnGuardarCliente = document.querySelector('#guardar-cliente');
-const modalOverlay = document.querySelector('.modal-overlay');
 const inputMesa = document.querySelector('#mesa');
 const inputHora = document.querySelector('#hora');
 const platillosSection = document.querySelector('#platillos');
 const resumenSection = document.querySelector('#resumen');
 const propinasSection = document.querySelector('#propinas');
 
-// Variable global para almacenar los datos
 let platillosData = [];
-let ordenActual = {
-    mesa: '',
-    hora: '',
-    items: [],
-    propina: 0
-};
+let ordenActual = { mesa: '', hora: '', items: [], propina: 0 };
+let historialMesas = [];
 
-// Event Listeners
-document.addEventListener('DOMContentLoaded', iniciarApp);
-
-function iniciarApp() {
-    // Cargar datos del JSON
+// Inicialización
+document.addEventListener('DOMContentLoaded', () => {
     cargarDatos();
-    
-    // Abrir modal
-    btnNuevaOrden.addEventListener('click', abrirModal);
-    
-    // Cerrar modal
-    btnCerrarModal.addEventListener('click', cerrarModal);
-    btnCancelar.addEventListener('click', cerrarModal);
-    modalOverlay.addEventListener('click', cerrarModal);
-    
-    // Guardar cliente
-    btnGuardarCliente.addEventListener('click', guardarCliente);
-}
+    btnNuevaOrden.addEventListener('click', () => modal.classList.add('activo'));
+    document.querySelector('.modal-overlay').addEventListener('click', cerrarModal);
+    document.querySelector('#btn-cerrar-modal').addEventListener('click', cerrarModal);
+    document.querySelector('#btn-cancelar').addEventListener('click', cerrarModal);
+    document.querySelector('#guardar-cliente').addEventListener('click', guardarCliente);
+    document.addEventListener('keydown', (e) => e.key === 'Escape' && cerrarModal());
+});
 
-// Función para cargar datos desde db.json
 async function cargarDatos() {
     try {
-        const response = await fetch('./db.json');
-        
-        if (!response.ok) {
-            throw new Error('Error al cargar los datos');
-        }
-        
-        const datos = await response.json();
+        const datos = await fetch('./db.json').then(r => r.json());
         platillosData = datos.platillos || datos;
-        
-        console.log('Datos cargados:', platillosData);
-        
-        // Aquí puedes llamar a una función para mostrar los platillos
-        // mostrarPlatillos(platillosData);
-        
     } catch (error) {
-        console.error('Error:', error);
-        alert('No se pudieron cargar los platillos. Verifica que db.json existe.');
+        alert('Error al cargar los platillos. Verifica que db.json existe.');
     }
-}
-
-// Funciones
-function abrirModal() {
-    modal.classList.add('activo');
 }
 
 function cerrarModal() {
     modal.classList.remove('activo');
-    // Limpiar formulario
     inputMesa.value = '';
     inputHora.value = '';
 }
@@ -78,46 +41,36 @@ function guardarCliente() {
     const mesa = inputMesa.value;
     const hora = inputHora.value;
     
-    // Validar
-    if(mesa === '' || hora === '') {
+    if (!mesa || !hora) {
         alert('Todos los campos son obligatorios');
         return;
     }
-    
-    // Validar número de mesa
-    if(mesa < 1 || mesa > 8) {
+    if (mesa < 1 || mesa > 8) {
         alert('Mesa no válida. Debe ser entre 1 y 8');
         return;
     }
     
-    // Guardar datos de la orden
-    ordenActual.mesa = mesa;
-    ordenActual.hora = hora;
-    ordenActual.items = [];
+    // Guardar orden anterior si existe
+    if (ordenActual.mesa) {
+        historialMesas.push({ ...ordenActual });
+        console.log('Orden guardada - Mesa ' + ordenActual.mesa + ':', ordenActual);
+    }
     
-    console.log('Mesa:', mesa);
-    console.log('Hora:', hora);
+    // Nueva orden
+    ordenActual = { mesa, hora, items: [], propina: 0 };
+    console.log('Nueva mesa creada - Mesa ' + mesa);
+    console.log('Historial de mesas:', historialMesas);
     
-    // Mostrar secciones
     platillosSection.classList.remove('oculto');
     resumenSection.classList.remove('oculto');
     propinasSection.classList.remove('oculto');
-    
-    // Cerrar modal
     cerrarModal();
     
-    // Mostrar platillos disponibles
-    if(platillosData.length > 0) {
-        mostrarPlatillos(platillosData);
-        mostrarResumen();
-    }
+    mostrarPlatillos(platillosData);
+    mostrarResumen();
 }
 
-// Función para mostrar los platillos en el DOM
 function mostrarPlatillos(platillos) {
-    const contenedorPrincipal = platillosSection.querySelector('.contenido');
-    contenedorPrincipal.innerHTML = '';
-    
     const contenedor = document.createElement('div');
     contenedor.classList.add('contenedor-platillos');
     
@@ -135,72 +88,54 @@ function mostrarPlatillos(platillos) {
         contenedor.appendChild(card);
     });
     
-    contenedorPrincipal.appendChild(contenedor);
+    platillosSection.querySelector('.contenido').innerHTML = '';
+    platillosSection.querySelector('.contenido').appendChild(contenedor);
     
-    // Agregar event listeners a los botones
-    const botonesAgregar = document.querySelectorAll('.btn-agregar');
-    botonesAgregar.forEach(btn => {
-        btn.addEventListener('click', agregarPlatillo);
+    document.querySelectorAll('.btn-agregar').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const id = parseInt(e.target.dataset.id);
+            const platillo = platillosData.find(p => p.id === id);
+            
+            if (platillo) {
+                const existe = ordenActual.items.find(item => item.id === id);
+                if (existe) {
+                    existe.cantidad++;
+                } else {
+                    ordenActual.items.push({ ...platillo, cantidad: 1 });
+                }
+                mostrarResumen();
+            }
+        });
     });
 }
 
-// Función para agregar platillo a la orden
-function agregarPlatillo(e) {
-    const id = parseInt(e.target.dataset.id);
-    const platillo = platillosData.find(p => p.id === id);
-    
-    if(platillo) {
-        // Verificar si el platillo ya está en la orden
-        const itemExistente = ordenActual.items.find(item => item.id === id);
-        
-        if(itemExistente) {
-            // Si ya existe, aumentar la cantidad
-            itemExistente.cantidad += 1;
-        } else {
-            // Si no existe, agregarlo a la orden
-            ordenActual.items.push({
-                id: platillo.id,
-                nombre: platillo.nombre,
-                precio: platillo.precio,
-                cantidad: 1
-            });
-        }
-        
-        console.log('Platillo agregado:', platillo);
-        console.log('Orden actual:', ordenActual);
-        
-        // Actualizar el resumen
-        mostrarResumen();
-    }
+function calcularTotal() {
+    return ordenActual.items.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
 }
 
-// Función para mostrar el resumen de la orden
 function mostrarResumen() {
     const contenedorResumen = resumenSection.querySelector('.contenido');
     contenedorResumen.innerHTML = '';
     
-    if(ordenActual.items.length === 0) {
+    if (ordenActual.items.length === 0) {
         contenedorResumen.innerHTML = '<p class="texto-centro">Añade los elementos del pedido</p>';
+        actualizarPropinas();
         return;
     }
     
-    // Crear tabla de resumen
     const tabla = document.createElement('div');
     tabla.classList.add('tabla-resumen');
     
-    // Encabezados
-    const encabezado = document.createElement('div');
-    encabezado.classList.add('resumen-encabezado');
-    encabezado.innerHTML = `
-        <div class="col-nombre">Platillo</div>
-        <div class="col-precio">Precio</div>
-        <div class="col-cantidad">Cantidad</div>
-        <div class="col-subtotal">Subtotal</div>
-        <div class="col-acciones">Acciones</div>
+    tabla.innerHTML = `
+        <div class="resumen-encabezado">
+            <div class="col-nombre">Platillo</div>
+            <div class="col-precio">Precio</div>
+            <div class="col-cantidad">Cantidad</div>
+            <div class="col-subtotal">Subtotal</div>
+            <div class="col-acciones">Acciones</div>
+        </div>
     `;
-    tabla.appendChild(encabezado);
     
-    // Items
     let total = 0;
     ordenActual.items.forEach((item, index) => {
         const subtotal = item.precio * item.cantidad;
@@ -224,62 +159,47 @@ function mostrarResumen() {
     
     contenedorResumen.appendChild(tabla);
     
-    // Total
     const divTotal = document.createElement('div');
     divTotal.classList.add('resumen-total');
     divTotal.innerHTML = `<strong>Total: €${total.toFixed(2)}</strong>`;
     contenedorResumen.appendChild(divTotal);
     
-    // Event listeners para cambiar cantidad
-    const inputsCantidad = document.querySelectorAll('.input-cantidad');
-    inputsCantidad.forEach(input => {
-        input.addEventListener('change', cambiarCantidad);
+    document.querySelectorAll('.input-cantidad').forEach(input => {
+        input.addEventListener('change', (e) => {
+            const index = parseInt(e.target.dataset.index);
+            const cantidad = parseInt(e.target.value);
+            if (cantidad > 0) {
+                ordenActual.items[index].cantidad = cantidad;
+                mostrarResumen();
+            } else {
+                e.target.value = ordenActual.items[index].cantidad;
+            }
+        });
     });
     
-    // Event listeners para eliminar
-    const botonesEliminar = document.querySelectorAll('.btn-eliminar');
-    botonesEliminar.forEach(btn => {
-        btn.addEventListener('click', eliminarItem);
+    document.querySelectorAll('.btn-eliminar').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const index = parseInt(e.target.dataset.index);
+            ordenActual.items.splice(index, 1);
+            mostrarResumen();
+        });
     });
     
-    // Inicializar propinas
-    inicializarPropinas();
-    actualizarPropinasTrabajadores();
+    actualizarPropinas();
 }
 
-// Función para cambiar la cantidad de un item
-function cambiarCantidad(e) {
-    const index = parseInt(e.target.dataset.index);
-    const nuevaCantidad = parseInt(e.target.value);
+function actualizarPropinas() {
+    const total = calcularTotal();
+    const propina = ordenActual.propina;
+    const totalConPropina = total + propina;
     
-    if(nuevaCantidad > 0) {
-        ordenActual.items[index].cantidad = nuevaCantidad;
-        mostrarResumen();
-    } else {
-        e.target.value = ordenActual.items[index].cantidad;
-    }
+    document.getElementById('total-consumo').textContent = `€${total.toFixed(2)}`;
+    document.getElementById('monto-propina').textContent = `€${propina.toFixed(2)}`;
+    document.getElementById('total-con-propina').textContent = `€${totalConPropina.toFixed(2)}`;
 }
 
-// Función para eliminar un item del resumen
-function eliminarItem(e) {
-    const index = parseInt(e.target.dataset.index);
-    ordenActual.items.splice(index, 1);
-    mostrarResumen();
-}
-
-// Cerrar modal con ESC
-document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && modal.classList.contains('activo')) {
-        cerrarModal();
-    }
-});
-
-// ============================================
-// FUNCIONES PARA PROPINAS
-// ============================================
-
-// Inicializar event listeners de propinas
-function inicializarPropinas() {
+// Propinas
+document.addEventListener('DOMContentLoaded', () => {
     const botonesPropina = document.querySelectorAll('.btn-propina');
     const inputPropina = document.querySelector('#propina-custom');
     
@@ -287,47 +207,27 @@ function inicializarPropinas() {
         btn.addEventListener('click', (e) => {
             botonesPropina.forEach(b => b.classList.remove('activo'));
             e.target.classList.add('activo');
-            
-            const porcentaje = parseFloat(e.target.dataset.porcentaje);
-            const total = calcularTotal();
-            const propina = (total * porcentaje) / 100;
-            
-            ordenActual.propina = propina;
+            ordenActual.propina = (calcularTotal() * parseFloat(e.target.dataset.porcentaje)) / 100;
             inputPropina.value = '';
-            actualizarPropinasTrabajadores();
+            actualizarPropinas();
         });
     });
     
-    inputPropina.addEventListener('change', (e) => {
-        botonesPropina.forEach(b => b.classList.remove('activo'));
-        const propina = parseFloat(e.target.value) || 0;
-        ordenActual.propina = propina;
-        actualizarPropinasTrabajadores();
-    });
-    
     inputPropina.addEventListener('input', (e) => {
-        const propina = parseFloat(e.target.value) || 0;
-        ordenActual.propina = propina;
-        actualizarPropinasTrabajadores();
+        botonesPropina.forEach(b => b.classList.remove('activo'));
+        ordenActual.propina = parseFloat(e.target.value) || 0;
+        actualizarPropinas();
     });
-}
+});
 
-// Calcular el total del consumo
-function calcularTotal() {
-    return ordenActual.items.reduce((total, item) => {
-        return total + (item.precio * item.cantidad);
-    }, 0);
+// Función para mostrar todas las mesas en consola
+function mostrarTodasLasMesas() {
+    console.log('=== RESUMEN DE TODAS LAS MESAS ===');
+    historialMesas.forEach((mesa, index) => {
+        console.log(`Mesa ${index + 1}:`, mesa);
+    });
+    if (ordenActual.mesa) {
+        console.log('Mesa actual (sin guardar):', ordenActual);
+    }
+    console.log('Mesas totales:', historialMesas.length);
 }
-
-// Actualizar el resumen de propinas
-function actualizarPropinasTrabajadores() {
-    const total = calcularTotal();
-    const propina = ordenActual.propina;
-    const totalConPropina = total + propina;
-    
-    // Actualizar resumen
-    document.getElementById('total-consumo').textContent = `€${total.toFixed(2)}`;
-    document.getElementById('monto-propina').textContent = `€${propina.toFixed(2)}`;
-    document.getElementById('total-con-propina').textContent = `€${totalConPropina.toFixed(2)}`;
-}
-
