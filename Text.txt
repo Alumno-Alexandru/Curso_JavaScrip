@@ -20,9 +20,6 @@ Boton es un componente / tine diseño (css):
         - No peligro -> (css)
 
 
-
-
-
 Framework -> la diferencia Framework -> libreria
 
 La que mas se a usado para programar es Angular.
