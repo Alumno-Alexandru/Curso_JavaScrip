@@ -1,0 +1,38 @@
+Explicacion de React
+
+-> Contador, Calculadora --> Conceptual                   
+ 
+
+React 
+
+Componentes ->  No es un paradigma de programar y ademas esta de lado del cliente.
+La mejor forma de visualizarlo, son las piezas de lego.
+Tipos de elementos:
+- Personaje  -> componentes -> caracteristicas: Forma/anclaje
+- Decoracion 
+- Construccion del entorno
+
+- Formulario -> Su elementos son: Aspecto (estilos), Cajas de texto, Botones.
+
+Boton es un componente / tine diseño (css):
+    El boton es reutilizable 
+        - De peligro -> (css)
+        - No peligro -> (css)
+
+
+
+
+
+Framework -> la diferencia Framework -> libreria
+
+La que mas se a usado para programar es Angular.
+
+La curba de aprendizaje de Angular es muy dificil.
+
+En empresas usan C# y Angular.
+
+Mas usados: vue-, suelt-, Angular, Meteor 
+Atom, Jango, Embert
+
+React Router ->
+SPA ->
