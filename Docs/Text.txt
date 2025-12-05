@@ -40,3 +40,9 @@ Atom, Jango, Embert
 React Router ->
 SPA ->
 
+Tarea ---
+Tenemos que añadir la edad con estas condiciones 
+Si la edad es mayor de 65 (indicar las condiciones )
+Si es menor de 18 (indicar las condiciones)
+y hacer que salte un guarning que si la cantidad
+se pase de 15.000€ diciendo que es el limite
