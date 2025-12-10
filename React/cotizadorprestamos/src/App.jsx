@@ -118,7 +118,7 @@ function App() {
         <div className="mb-4 p-4 text-red-800 bg-red-100 border-2 border-red-400 rounded-lg">
           <p className='font-bold mb-2'>Advertencia - Menor de edad</p>
           <p className='text-sm'>
-            Debes ser mayor de 18 años para solicitar un préstamo. Es necesario contar con un adulto.
+            Debes ser mayor de 18 años para solicitar un prestamo. Es necesario contar con un adulto.
           </p>
         </div>
       )}
@@ -127,8 +127,7 @@ function App() {
         <div className="mb-4 p-4 text-amber-800 bg-amber-100 border-2 border-amber-400 rounded-lg">
           <p className='font-bold mb-2'>Advertencia - Mayor de 65 años</p>
           <p className='text-sm'>
-            Para personas mayores de 65 años, debe saber que lo que pida 
-            el banco se lo pedira a sus nietos.  
+            Para personas mayores de 65 años, debe saber que puede que le impidan el prestamo.  
           </p>
         </div>
       )}
