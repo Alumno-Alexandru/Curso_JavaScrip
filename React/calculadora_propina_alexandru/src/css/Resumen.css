@@ -1,0 +1,130 @@
+.resumen {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 24px;
+  background: #fff;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.resumen-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Grid de 2 columnas: Pedido (izq) y Factura (der) */
+.resumen-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 100%;
+  grid-auto-rows: 1fr;
+}
+
+.resumen-card {
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+.pedido-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* limit list height and allow scroll if long */
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.pedido-list li,
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.line input {
+  width: 60px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  text-align: center;
+  font-weight: 14px;
+  background: #f5f5f5;
+  margin-right: 10px;
+  color: #000000;
+}
+
+.propina-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.propina-buttons .button1 {
+  padding: 6px 14px;
+  font-size: 12px;
+  border: 1.5px solid #333;
+  background: #fff;
+  color: #000000;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.propina-buttons .button1:hover {
+  background: #77ff0072;
+  color: #000000;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Botones de acción en factura */
+.factura-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-limpiar,
+.btn-imprimir {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-limpiar {
+  background: #ff6b6b;
+  color: rgb(0, 0, 0);
+}
+
+.btn-limpiar:hover {
+  background: #ff5252;
+}
+
+.btn-imprimir {
+  background: #0b78ff;
+  color: rgb(0, 0, 0);
+}
+
+.btn-imprimir:hover {
+  background: #0963d0;
+}

@@ -1,0 +1,259 @@
+{
+  "platillos": [
+    {
+      "id": 1,
+      "nombre": "Paella Valenciana",
+      "precio": 14.5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Tortilla Española",
+      "precio": 6.5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Pulpo a la Gallega",
+      "precio": 13,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Croquetas de Jamón",
+      "precio": 7,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Gambas al Ajillo",
+      "precio": 10,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Calamares a la Andaluza",
+      "precio": 9,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Fabada Asturiana",
+      "precio": 11.5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Cocido Madrileño",
+      "precio": 12,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Solomillo al Whisky",
+      "precio": 13.5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Huevos Rotos con Jamón",
+      "precio": 8.5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Pimientos del Padrón",
+      "precio": 5.5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Bacalao a la Vizcaína",
+      "precio": 14,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Callos a la Madrileña",
+      "precio": 10.5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Ensalada Mixta Española",
+      "precio": 6,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Patatas Bravas",
+      "precio": 5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Migas Extremeñas",
+      "precio": 9,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Chorizo a la Sidra",
+      "precio": 8,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Arroz Negro",
+      "precio": 13.5,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Gazpacho Andaluz",
+      "precio": 6,
+      "categoria": "comida"
+    },
+    {
+      "id": 1,
+      "nombre": "Salmorejo Cordobés",
+      "precio": 6.5,
+      "categoria": "comida"
+    },
+
+    {
+      "id": 2,
+      "nombre": "Vino Tinto Rioja",
+      "precio": 3.5,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Vino Blanco Albariño",
+      "precio": 3.8,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Sangría",
+      "precio": 3,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Cerveza Estrella Galicia",
+      "precio": 2.5,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Tinto de Verano",
+      "precio": 2.2,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Clara con Limón",
+      "precio": 2,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Vermut Rojo",
+      "precio": 3,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Horchata Valenciana",
+      "precio": 2.5,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Café Solo",
+      "precio": 1.2,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Café con Leche",
+      "precio": 1.5,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Agua Mineral",
+      "precio": 1,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Refresco de Naranja",
+      "precio": 1.8,
+      "categoria": "bebida"
+    },
+    {
+      "id": 2,
+      "nombre": "Refresco de Limón",
+      "precio": 1.8,
+      "categoria": "bebida"
+    },
+
+    {
+      "id": 3,
+      "nombre": "Flan Casero",
+      "precio": 4,
+      "categoria": "postre"
+    },
+    {
+      "id": 3,
+      "nombre": "Crema Catalana",
+      "precio": 4.5,
+      "categoria": "postre"
+    },
+    {
+      "id": 3,
+      "nombre": "Churros con Chocolate",
+      "precio": 4,
+      "categoria": "postre"
+    },
+    {
+      "id": 3,
+      "nombre": "Tarta de Santiago",
+      "precio": 5,
+      "categoria": "postre"
+    },
+    {
+      "id": 3,
+      "nombre": "Arroz con Leche",
+      "precio": 3.5,
+      "categoria": "postre"
+    },
+    {
+      "id": 3,
+      "nombre": "Helado Artesanal",
+      "precio": 3.8,
+      "categoria": "postre"
+    },
+    {
+      "id": 3,
+      "nombre": "Natillas",
+      "precio": 3.2,
+      "categoria": "postre"
+    },
+    {
+      "id": 3,
+      "nombre": "Tarta de Queso",
+      "precio": 4.8,
+      "categoria": "postre"
+    },
+    {
+      "id": 3,
+      "nombre": "Buñuelos de Viento",
+      "precio": 4,
+      "categoria": "postre"
+    }
+  ],
+  "clientes":[]
+}

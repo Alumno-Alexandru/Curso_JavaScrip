@@ -1,0 +1,78 @@
+{
+    "platillos": [
+      {
+        "id": 1,
+        "nombre": "Kebab",
+        "precio": 10,
+        "categoria": 1
+      },
+      {
+        "id": 2,
+        "nombre": "Durum",
+        "precio": 12,
+        "categoria": 1
+      },
+      {
+        "id": 3,
+        "nombre": "Pizza Barbacoa",
+        "precio": 15,
+        "categoria": 3
+      },
+      {
+        "id": 4,
+        "nombre": "Pizza 4 Quesos",
+        "precio": 16,
+        "categoria": 3
+      },
+      {
+        "id": 5,
+        "nombre": "Cocacola 1.5L",
+        "precio": 3,
+        "categoria": 2
+      },
+      {
+        "id": 6,
+        "nombre": "Fanta de Naranja 1.5L",
+        "precio": 3,
+        "categoria": 2
+      },
+      {
+        "id": 7,
+        "nombre": "Botella de Agua 1L",
+        "precio": 2,
+        "categoria": 2
+      },
+      {
+        "id": 8,
+        "nombre": "Coctel de Coco",
+        "precio": 20,
+        "categoria": 4
+      },
+      {
+        "id": 9,
+        "nombre": "Coctel de tropical",
+        "precio": 19,
+        "categoria": 4
+      },
+      {
+        "id": 10,
+        "nombre": "Cafe con Leche",
+        "precio": 2,
+        "categoria": 5
+      },
+      {
+        "id": 11,
+        "nombre": "Café Americano",
+        "precio": 2,
+        "categoria": 5
+      },
+      {
+        "id": 12,
+        "nombre": "Café Capuchino",
+        "precio": 3,
+        "categoria": 5
+      }
+    ],
+
+    "Cliente": []
+}

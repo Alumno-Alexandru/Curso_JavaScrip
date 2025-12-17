@@ -1,0 +1,140 @@
+/* --- Card Principal --- */
+.platillo-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  max-width: 740px;
+}
+
+.platillo-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+}
+
+/* --- Imagen circular --- */
+.platillo-media {
+  flex: 0 0 auto;
+}
+
+.platillo-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 -4px 10px rgba(0, 0, 0, 0.05);
+  font-size: 28px;
+}
+
+/* --- Info --- */
+.platillo-info {
+  flex: 1 1 auto;
+}
+
+.platillo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.platillo-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.platillo-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b78ff;
+}
+
+/* --- Meta --- */
+.platillo-meta {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.platillo-pill {
+  background: rgba(11, 120, 255, 0.1);
+  color: #0b78ff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.platillo-id {
+  color: #64748b;
+}
+
+/* --- Controles --- */
+.platillo-controls {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platillo-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(2, 6, 23, 0.05);
+}
+
+.qty-input {
+  width: 60px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-weight: 600;
+}
+
+/* --- Botones de acción --- */
+.platillo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-remove {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  color: #dc2626;
+  background: #fff;
+  cursor: pointer;
+}
+
+.btn-add {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #0b78ff;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+}

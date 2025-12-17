@@ -1,0 +1,47 @@
+.resumen {
+  margin-top: 40px;
+  padding: 24px;
+  background: #f8fafc;
+}
+
+.resumen-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.resumen-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.resumen-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.pedido-list {
+  list-style: none;
+  padding: 0;
+}
+
+.pedido-list li,
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.line input {
+  width: 80px;
+  padding: 6px;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+}

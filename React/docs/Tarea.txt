@@ -1,0 +1,10 @@
+Componentes en react
+
+[JavaScrip(React)] despues de las vacaciones lo pasaremos a [TypeScript(react)]
+-> Listado de la carta
+-> Mesa 
+-> El pedido 
+-> El total pedido 
+-> La propina
+
+use State, Use efect

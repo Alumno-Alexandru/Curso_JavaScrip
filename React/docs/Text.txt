@@ -1,4 +1,4 @@
-Para crear el proyecto de react -> npm create viste@latest
+Para crear el proyecto de react -> npm create vite@latest
 Para arancar hay que poner -> npm run dev
 Para crear el proyecto de resct 2 -> npx create-react-app "Nombre del proyecto"
 Para arancar hay que poner -> npm run start

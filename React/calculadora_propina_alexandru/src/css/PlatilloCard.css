@@ -1,0 +1,151 @@
+﻿/* --- Card Principal --- */
+.platillo-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 18px rgba(13, 18, 25, 0.06);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* acento curvo a la izquierda */
+.platillo-card:before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 12px;
+  bottom: 12px;
+  width: 10px;
+  background: linear-gradient(180deg, #7c84f7, #6b46c1);
+  border-radius: 10px;
+}
+
+.platillo-title {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4447d6;
+}
+
+.platillo-meta {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #333;
+}
+
+.platillo-pill {
+  font-style: italic;
+  color: #6b7280;
+}
+
+.platillo-id {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* controles: mostrar +/- y agregar/quitar */
+.platillo-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.platillo-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.qty-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  transition: background 0.2s;
+}
+
+.btn-mas {
+  background: #35a335;
+}
+
+.btn-mas:hover {
+  background: #2d8c2d;
+}
+
+.btn-menos {
+  background: #e95e5e;
+}
+
+.btn-menos:hover {
+  background: #d94444;
+}
+
+.qty-input {
+  width: 50px;
+  text-align: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.platillo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-remove {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(220,38,38,0.2);
+  color: #dc2626;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  flex: 0.5;
+}
+  
+.btn-remove:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-add {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(90deg, #6b46c1, #7c84f7);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.btn-add:hover {
+  filter: brightness(0.98);
+}
+
+@media (max-width: 900px) {
+  .platillo-card { padding: 14px; }
+  .platillo-title { font-size: 16px; }
+}
+
+@media (max-width: 520px) {
+  .platillo-card { padding: 12px; }
+  .platillo-actions { gap: 6px; }
+}
